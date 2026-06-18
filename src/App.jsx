@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Route, Routes } from 'react-router-dom'
 import Experts from './components/Experts'
 import ExpertDetails from './components/ExpertDetails'
@@ -10,10 +10,28 @@ function App() {
   return (
     <div className="app-shell">
       <header className="topbar">
-        <div>
-          <p className="eyebrow">Expert Session Booking</p>
-          <h1>Real-time expert session scheduling</h1>
+        <div className="topbar-brand">
+          <div className="brand-dot" />
+          <div>
+            <p className="eyebrow">Expert Session Booking</p>
+            <h1>Real-time expert scheduling</h1>
+          </div>
         </div>
+        <nav className="topbar-nav">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}
+          >
+            Experts
+          </NavLink>
+          <NavLink
+            to="/my-bookings"
+            className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}
+          >
+            My Bookings
+          </NavLink>
+        </nav>
       </header>
       <Routes>
         <Route path="/" element={<Experts />} />

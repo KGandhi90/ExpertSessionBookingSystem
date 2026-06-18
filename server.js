@@ -33,8 +33,8 @@ app.get('/api/health', (req, res) => {
 app.use('/api/experts', expertRoutes)
 app.use('/api/bookings', bookingRoutes)
 
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
-  // eslint-disable-next-line no-unused-vars
   const status = err.statusCode || 500
   res.status(status).json({ message: err.message || 'Server error' })
 })
